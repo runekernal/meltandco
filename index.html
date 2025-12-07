@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melt & Co | Premium Waffles & Desserts</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta name="description"
+        content="Experience the finest waffles, bubble waffles, pancakes, and premium desserts at Melt & Co. A luxury cafe experience.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="nav-brand">
+                <img class="logo-img" src="assets/logo-chocolate.png" alt="Logo">
+                <a href="#" class="logo">Melt <span>& Co.</span></a>
+            </div>
+
+            <!-- Desktop Links -->
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="tel:+918714222562" class="btn-call"><i class="fa-solid fa-phone"></i> Call Us </a>
+
+                <!-- Mobile Toggle Button -->
+                <button class="mobile-toggle" aria-label="Open Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Full Screen Mobile Menu -->
+        <div class="mobile-menu-overlay">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#menu">Menu</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+            <a href="tel:+918714222562" class="btn-call-mobile"><i class="fa-solid fa-phone"></i> Call Us</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <span class="hero-badge fade-in">The Sweetest Escape</span>
+                <h1 class="fade-in delay-1">Melt into <br><span>Sweetness</span></h1>
+                <p class="fade-in delay-2">Experience artisanal Belgian waffles, fluffy pancakes, and premium desserts
+                    crafted with passion. A luxury cafe experience awaits.</p>
+                <div class="btn-group fade-in delay-2">
+                    <a href="#menu" class="btn btn-primary">View Menu</a>
+                    <a href="#about" class="btn btn-secondary">Our Story</a>
+                </div>
+            </div>
+
+            <!-- THE COLLAGE GRID IMPLEMENTATION -->
+            <div class="hero-visuals fade-in delay-2">
+                <div class="collage-wrapper">
+                    <div class="collage-grid">
+
+                        <!-- 1. Pink Shape Bottom Left -->
+                        <div class="collage-item c-item-1"></div>
+
+                        <!-- 2. Main Large Image (Waffle Stack) -->
+                        <div class="collage-item c-item-2">
+                            <img src="assets/hero/hero_waffle_stack.jpg" alt="Waffle Stack">
+                        </div>
+
+                        <!-- 3. Small Image Left (Woman/Chef or Detail) -->
+                        <div class="collage-item c-item-3">
+                            <img src="assets/hero/blueberry-stack.jpg" alt="Chef Detail">
+                        </div>
+
+                        <!-- 4. Wide Image Right (Spread) -->
+                        <div class="collage-item c-item-4">
+                            <img src="assets/hero/hero-image.png" alt="Table Spread">
+                        </div>
+
+                        <!-- 5. Tall Image Bottom (Drizzle) -->
+                        <div class="collage-item c-item-5">
+                            <img src="assets/hero/hero_syrup_pour.jpg" alt="Syrup Pour">
+                        </div>
+
+                        <!-- 6. Small Image Top Right (Berries) -->
+                        <div class="collage-item c-item-6">
+                            <img src="assets/hero/hero_berries_top.jpg" alt="Fresh Berries">
+                        </div>
+
+                        <!-- 7. Gold Shape Top Right -->
+                        <div class="collage-item c-item-7"></div>
+
+                        <!-- 8. Small Image Bottom Left (Ice Cream) -->
+                        <div class="collage-item c-item-8">
+                            <img src="assets/hero/hero_ice_cream.jpg" alt="Ice Cream">
+                        </div>
+
+                        <!-- 9. Small Image Far Right (Coffee/Drink) -->
+                        <div class="collage-item c-item-9">
+                            <img src="assets/hero/hero_coffee.jpg" alt="Coffee">
+                        </div>
+
+                        <!-- 10. Mint Shape Right -->
+                        <div class="collage-item c-item-10"></div>
+
+                        <!-- 11. Extra Small (Berries) -->
+                        <div class="collage-item c-item-12">
+                            <img src="assets/hero/hero_chocolate.jpg" alt="Chocolate">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Our Story</h2>
+                <p>Crafting moments of pure delight, one waffle at a time.</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <h3>A Passion for Sweetness</h3>
+                    <p>At Melt & Co, we believe that dessert is not just food, but an experience. Born from a passion
+                        for exquisite flavors and textures, we bring you the finest Belgian waffles, fluffy pancakes,
+                        and artisanal desserts.</p>
+                    <p>Our chefs use only premium ingredients to ensure that every bite is a journey of taste. Whether
+                        you crave the crunch of a bubble waffle or the smoothness of our signature chocolate blends,
+                        Melt & Co is your sanctuary of sweetness.</p>
+
+                    <!-- Added signature for premium feel -->
+                    <div class="about-signature">
+                        - The Melt & Co Team
+                    </div>
+                </div>
+
+                <!-- Updated Layered Image Structure -->
+                <div class="about-image fade-in delay-1">
+                    <!-- Decor Elements -->
+                    <div class="about-deco-box"></div>
+                    <div class="about-deco-dots"></div>
+
+                    <!-- Main Image (Cafe Interior) -->
+                    <div class="about-img-main">
+                        <img src="assets/about/about_interior.jpg" alt="Cafe Interior">
+                    </div>
+
+                    <!-- Secondary Image (Close up) -->
+                    <div class="about-img-secondary">
+                        <img src="assets/about/about-image.png" alt="Chef Finishing Dessert">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="section menu">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Our Menu</h2>
+                <p>Indulge in our signature creations.</p>
+            </div>
+
+            <!-- Category: Signature Waffles -->
+            <div class="menu-category fade-in">
+                <h3>Signature Waffles</h3>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-img-placeholder"
+                            style="background-image: url('assets/menu/classic-belgian.png')">
+                        </div>
+                        <div class="menu-info">
+                            <h4>Classic Belgian</h4>
+                            <p>Golden crispy waffle served with maple syrup and fresh berries.</p>
+                            <span class="price">₹299</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-img-placeholder"
+                            style="background-image: url('assets/menu/menu_waffle_choco.jpg')">
+                        </div>
+                        <div class="menu-info">
+                            <h4>Choco Overload</h4>
+                            <p>Topped with Belgian chocolate sauce, brownie chunks, and white chocolate chips.</p>
+                            <span class="price">₹349</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-img-placeholder"
+                            style="background-image: url('assets/menu/menu_waffle_redvelvet.jpg')">
+                        </div>
+                        <div class="menu-info">
+                            <h4>Red Velvet</h4>
+                            <p>Red velvet waffle with cream cheese frosting and white chocolate shavings.</p>
+                            <span class="price">₹399</span>
+                        </div>
+                    </div>
+                    <!-- Duplicate Item for Slider -->
+                    <div class="menu-item">
+                        <div class="menu-img-placeholder"
+                            style="background-image: url('assets/menu/classic-belgian.png')">
+                        </div>
+                        <div class="menu-info">
+                            <h4>Classic Belgian</h4>
+                            <p>Golden crispy waffle served with maple syrup and fresh berries.</p>
+                            <span class="price">₹299</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category: Bubble Waffles -->
+            <div class="menu-category fade-in">
+                <h3>Bubble Waffles</h3>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-img-placeholder"
+                            style="background-image: url('assets/menu/menu_bubble_fruity.jpg')">
+                        </div>
+                        <div class="menu-info">
+                            <h4>Fruity Bubble</h4>
+                            <p>Bubble waffle filled with vanilla ice cream, fresh fruits, and strawberry sauce.</p>
+                            <span class="price">₹429</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-img-placeholder"
+                            style="background-image: url('assets/menu/menu_bubble_oreo.jpg')">
+                        </div>
+                        <div class="menu-info">
+                            <h4>Oreo Crunch</h4>
+                            <p>Bubble waffle with cookies & cream ice cream, crushed Oreos, and chocolate drizzle.</p>
+                            <span class="price">₹429</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-img-placeholder"
+                            style="background-image: url('assets/menu/menu_bubble_matcha.jpg')">
+                        </div>
+                        <div class="menu-info">
+                            <h4>Matcha Madness</h4>
+                            <p>Green tea bubble waffle with matcha ice cream and red bean paste.</p>
+                            <span class="price">₹449</span>
+                        </div>
+                    </div>
+                    <!-- Duplicate Item for Slider -->
+                    <div class="menu-item">
+                        <div class="menu-img-placeholder"
+                            style="background-image: url('assets/menu/menu_bubble_fruity.jpg')">
+                        </div>
+                        <div class="menu-info">
+                            <h4>Fruity Bubble</h4>
+                            <p>Bubble waffle filled with vanilla ice cream, fresh fruits, and strawberry sauce.</p>
+                            <span class="price">₹429</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category: Pancakes -->
+            <div class="menu-category fade-in">
+                <h3>Fluffy Pancakes</h3>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-img-placeholder"
+                            style="background-image: url('assets/menu/menu_pancakes_blueberry.jpg')">
+                        </div>
+                        <div class="menu-info">
+                            <h4>Blueberry Stack</h4>
+                            <p>Three fluffy pancakes topped with fresh blueberries and blueberry compote.</p>
+                            <span class="price">₹399</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-img-placeholder"
+                            style="background-image: url('assets/menu/menu_pancakes_banana.jpg')">
+                        </div>
+                        <div class="menu-info">
+                            <h4>Banana Nut</h4>
+                            <p>Topped with caramelized bananas, walnuts, and whipped cream.</p>
+                            <span class="price">₹399</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-img-placeholder"
+                            style="background-image: url('assets/menu/menu_pancakes_maple.jpg')">
+                        </div>
+                        <div class="menu-info">
+                            <h4>Classic Maple</h4>
+                            <p>Served simply with butter and warm maple syrup.</p>
+                            <span class="price">₹329</span>
+                        </div>
+                    </div>
+                    <!-- Duplicate Item for Slider -->
+                    <div class="menu-item">
+                        <div class="menu-img-placeholder"
+                            style="background-image: url('assets/menu/menu_pancakes_blueberry.jpg')">
+                        </div>
+                        <div class="menu-info">
+                            <h4>Blueberry Stack</h4>
+                            <p>Three fluffy pancakes topped with fresh blueberries and blueberry compote.</p>
+                            <span class="price">₹399</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="section gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2>Sweet Moments</h2>
+                <p>Follow us on Instagram @MeltAndCo</p>
+            </div>
+
+            <div class="gallery-marquee fade-in">
+                <!-- Track contains 2 sets of images for seamless looping -->
+                <div class="gallery-track">
+                    <!-- SET 1 (Original) -->
+                    <div class="gallery-item">
+                        <img src="assets/gallery/gallery_1.jpg" alt="Gallery 1">
+                        <div class="overlay"><i class="fa-brands fa-instagram"></i></div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/gallery/gallery_2.jpg" alt="Gallery 2">
+                        <div class="overlay"><i class="fa-brands fa-instagram"></i></div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/gallery/gallery_3.jpg" alt="Gallery 3">
+                        <div class="overlay"><i class="fa-brands fa-instagram"></i></div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/gallery/gallery_4.jpg" alt="Gallery 4">
+                        <div class="overlay"><i class="fa-brands fa-instagram"></i></div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/gallery/gallery_5.jpg" alt="Gallery 5">
+                        <div class="overlay"><i class="fa-brands fa-instagram"></i></div>
+                    </div>
+
+                    <!-- SET 2 (Duplicate for Loop) -->
+                    <div class="gallery-item">
+                        <img src="assets/gallery/gallery_1.jpg" alt="Gallery 1">
+                        <div class="overlay"><i class="fa-brands fa-instagram"></i></div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/gallery/gallery_2.jpg" alt="Gallery 2">
+                        <div class="overlay"><i class="fa-brands fa-instagram"></i></div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/gallery/gallery_3.jpg" alt="Gallery 3">
+                        <div class="overlay"><i class="fa-brands fa-instagram"></i></div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/gallery/gallery_4.jpg" alt="Gallery 4">
+                        <div class="overlay"><i class="fa-brands fa-instagram"></i></div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/gallery/gallery_5.jpg" alt="Gallery 5">
+                        <div class="overlay"><i class="fa-brands fa-instagram"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <div class="footer-brand">
+                    <h3>Melt <span>& Co.</span></h3>
+                    <p>Premium Dessert Cafe</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Visit Us</h4>
+                <p>Logan's Road, Thalassery</p>
+                <p>Kerala, India, 670661</p>
+                <p>+91 87142 22564</p>
+            </div>
+            <div class="footer-map">
+                <h4>Find Us</h4>
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125028.91333333792!2d75.41818165!3d11.74805725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba4243689c44563%3A0x644677764f6e3cda!2sThalassery%2C%20Kerala!5e0!3m2!1sen!2sin!4v1701768800000!5m2!1sen!2sin"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Qubo Developers. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

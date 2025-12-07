@@ -1,0 +1,1108 @@
+:root {
+  /* Brand Colors */
+  --primary-gold: #d4af37;
+  --secondary-gold: #c5a028;
+  --cream: #fffdd0;
+  --soft-pink: #fadadd;
+  --chocolate: #5d4037;
+  --dark-text: #2c2c2c;
+  --light-text: #f9f9f9;
+  --bg-light: #fffcf5;
+  /* Warmer off-white */
+  --white: #ffffff;
+
+  /* Typography */
+  --font-heading: "Playfair Display", serif;
+  --font-body: "Lato", sans-serif;
+
+  /* Utils */
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+    0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.05),
+    0 4px 6px -2px rgba(0, 0, 0, 0.025);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.05),
+    0 10px 10px -5px rgba(0, 0, 0, 0.02);
+  --radius-md: 12px;
+  --radius-lg: 24px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 14px;
+  /* Increased base size */
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--dark-text);
+  background-color: var(--bg-light);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.container {
+  max-width: 1280px;
+  /* Increased container width */
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* --- Navbar --- */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--bg-light);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 1000;
+  padding: 1rem 0;
+  transition: all 0.4s ease;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.05);
+}
+
+.navbar.scrolled {
+  padding: 0.6rem 0;
+  background-color: var(--bg-light);
+  box-shadow: var(--shadow-sm);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-img {
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
+}
+
+.logo {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--chocolate);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 1002;
+  /* Ensure logo stays above mobile menu */
+}
+
+.logo span {
+  color: var(--primary-gold);
+}
+
+/* Desktop Navigation */
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.nav-links a {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--dark-text);
+  position: relative;
+  transition: color 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 5px 0;
+}
+
+/* Elegant Center-Out Underline Hover */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: var(--primary-gold);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateX(-50%);
+}
+
+.nav-links a:hover {
+  color: var(--primary-gold);
+}
+
+.nav-links a:hover::after {
+  width: 25px;
+  /* Minimalist dot/dash style */
+}
+
+/* Actions Container (Button + Mobile Toggle) */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.btn-call {
+  background: linear-gradient(135deg, var(--primary-gold), #b8860b);
+  color: white !important;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+  border: none;
+  position: relative;
+  overflow: hidden;
+  z-index: 1002;
+}
+
+.btn-call::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.btn-call:hover::before {
+  left: 100%;
+}
+
+.btn-call:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(184, 134, 11, 0.4);
+}
+
+/* Mobile Menu Toggle */
+.mobile-toggle {
+  display: none;
+  font-size: 1.5rem;
+  color: var(--chocolate);
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1002;
+  padding: 5px;
+}
+
+/* Mobile Menu Container */
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--bg-light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1001;
+  /* Between logo/toggle and content */
+}
+
+.mobile-menu-overlay.active {
+  transform: translateX(0);
+}
+
+.mobile-menu-overlay a {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--chocolate);
+  transition: var(--transition);
+}
+
+.mobile-menu-overlay a:hover {
+  color: var(--primary-gold);
+  transform: scale(1.1);
+}
+
+/* Responsive Styles for Navbar */
+@media (max-width: 900px) {
+  .nav-links {
+    display: none;
+  }
+
+  .btn-call {
+    display: none;
+    /* Hide button in header, show in mobile menu */
+  }
+
+  .mobile-toggle {
+    display: block;
+  }
+
+  /* Show button inside mobile menu */
+  .mobile-menu-overlay .btn-call-mobile {
+    display: inline-block;
+    background: var(--primary-gold);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+  }
+}
+
+/* Desktop only adjustment */
+@media (min-width: 901px) {
+  .mobile-menu-overlay {
+    display: none;
+  }
+}
+
+/* --- Hero Section with Collage --- */
+.hero {
+  min-height: 100vh;
+  padding-top: 100px;
+  padding-bottom: 50px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle Grid Background for Hero */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: linear-gradient(
+      rgba(212, 175, 55, 0.1) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(212, 175, 55, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+}
+
+.hero-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.hero-content {
+  max-width: 600px;
+}
+
+.hero-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  background-color: rgba(212, 175, 55, 0.1);
+  color: var(--chocolate);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+}
+
+.hero-content h1 {
+  font-size: 4.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--chocolate);
+  line-height: 1.1;
+}
+
+.hero-content h1 span {
+  color: transparent;
+  background: linear-gradient(135deg, var(--primary-gold), #b8860b);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.hero-content p {
+  font-size: 1.25rem;
+  margin-bottom: 2.5rem;
+  font-weight: 300;
+  color: #555;
+  max-width: 90%;
+}
+
+.btn-group {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: var(--chocolate);
+  color: white;
+  box-shadow: 0 4px 15px rgba(93, 64, 55, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  background-color: #4a332c;
+  box-shadow: 0 8px 25px rgba(93, 64, 55, 0.4);
+}
+
+.btn-secondary {
+  background-color: white;
+  color: var(--chocolate);
+  border: 1px solid rgba(93, 64, 55, 0.2);
+}
+
+.btn-secondary:hover {
+  border-color: var(--chocolate);
+  background-color: var(--bg-light);
+}
+
+/* --- THE COLLAGE GRID --- */
+.collage-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  /* Keep it square-ish */
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.collage-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap: 12px;
+  width: 100%;
+  height: 100%;
+}
+
+.collage-item {
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+}
+
+.collage-item:hover {
+  transform: scale(1.03);
+  z-index: 2;
+  box-shadow: var(--shadow-lg);
+}
+
+.collage-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Positioning Items based on Reference */
+
+/* 1. Far Left Small (Pink Shape) */
+.c-item-1 {
+  grid-column: 1 / 2;
+  grid-row: 4 / 5;
+  background-color: var(--soft-pink);
+  border-radius: 3rem 1rem 1rem 1rem;
+  /* Organic shape */
+  transform: rotate(-10deg);
+  opacity: 0.8;
+  box-shadow: none;
+}
+
+/* 2. Main Large Image (Top Left-ish) */
+.c-item-2 {
+  grid-column: 2 / 4;
+  grid-row: 2 / 4;
+  z-index: 5;
+}
+
+/* 3. Small Image Left (Below Main) */
+.c-item-3 {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  align-self: center;
+}
+
+/* 4. Wide Image (Right Middle) */
+.c-item-4 {
+  grid-column: 4 / 6;
+  grid-row: 3 / 4;
+}
+
+/* 5. Tall/Large Image (Bottom Center) */
+.c-item-5 {
+  grid-column: 3 / 5;
+  grid-row: 4 / 6;
+  z-index: 4;
+}
+
+/* 6. Top Right Small Image */
+.c-item-6 {
+  grid-column: 4 / 5;
+  grid-row: 2 / 3;
+  align-self: end;
+}
+
+/* 7. Yellow/Gold Shape Top Right */
+.c-item-7 {
+  grid-column: 5 / 6;
+  grid-row: 2 / 3;
+  background-color: var(--primary-gold);
+  border-radius: 0 3rem 1rem 1rem;
+  opacity: 0.6;
+  box-shadow: none;
+}
+
+/* 8. Small Image Bottom Left (Below Main) */
+.c-item-8 {
+  grid-column: 2 / 3;
+  grid-row: 4 / 5;
+}
+
+/* 9. Small Image Far Right */
+.c-item-9 {
+  grid-column: 6 / 7;
+  grid-row: 4 / 5;
+  align-self: center;
+}
+
+/* 10. Green/Cream Shape Right */
+.c-item-10 {
+  grid-column: 6 / 7;
+  grid-row: 3 / 4;
+  background-color: #e0f2f1;
+  /* Minty */
+  border-radius: 3rem 0 1rem 1rem;
+  align-self: start;
+  height: 80%;
+  margin-top: 10px;
+  box-shadow: none;
+}
+
+/* 11. Blue Circle */
+.c-item-11 {
+  grid-column: 7;
+  /* Push out */
+  grid-row: 4;
+  width: 60px;
+  height: 60px;
+  background-color: #bbdefb;
+  border-radius: 50%;
+  display: none;
+  /* Hide on smaller layouts if needed */
+}
+
+/* 12. Extra small bottom right */
+.c-item-12 {
+  grid-column: 5 / 6;
+  grid-row: 4 / 5;
+  align-self: end;
+}
+
+/* --- About Section --- */
+.section {
+  padding: 6rem 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-header h2 {
+  font-size: 3rem;
+  color: var(--chocolate);
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+.section-header h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: var(--primary-gold);
+  margin: 10px auto 0;
+}
+
+.section-header p {
+  color: #777;
+  font-size: 1.1rem;
+  font-family: var(--font-heading);
+  font-style: italic;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.about-text h3 {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  color: var(--chocolate);
+}
+
+.about-text p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.8;
+}
+
+/* --- Updated About Image Style (Layered) --- */
+.about-image {
+  position: relative;
+  height: 500px;
+  /* Fixed height to manage absolute positioning */
+}
+
+/* Main large image (Right aligned) */
+.about-img-main {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80%;
+  height: 85%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  z-index: 1;
+}
+
+.about-img-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Secondary overlapping image (Bottom Left) */
+.about-img-secondary {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  height: 55%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 6px solid var(--bg-light);
+  /* Thick border to separate images */
+  z-index: 2;
+}
+
+.about-img-secondary img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Decorative Gold Box Outline */
+.about-deco-box {
+  position: absolute;
+  top: 40px;
+  right: -20px;
+  width: 150px;
+  height: 150px;
+  border: 2px solid var(--primary-gold);
+  border-radius: var(--radius-lg);
+  z-index: 0;
+  opacity: 0.6;
+}
+
+/* Decorative Dots Pattern */
+.about-deco-dots {
+  position: absolute;
+  bottom: 20px;
+  right: 20%;
+  width: 100px;
+  height: 100px;
+  background-image: radial-gradient(var(--primary-gold) 2px, transparent 2px);
+  background-size: 12px 12px;
+  opacity: 0.4;
+  z-index: 0;
+}
+
+/* Standard Elegant Signature */
+.about-signature {
+  font-family: "Playfair Display", serif;
+  font-size: 1.8rem;
+  font-style: italic;
+  color: var(--primary-gold);
+  margin-top: 1.5rem;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+/* Responsive adjustment for About Image */
+@media (max-width: 900px) {
+  .about-image {
+    height: 400px;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+/* --- Menu Section --- */
+.menu {
+  background-color: var(--white);
+}
+
+.menu-category {
+  margin-bottom: 5rem;
+}
+
+.menu-category h3 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2.5rem;
+  color: var(--chocolate);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.menu-category h3::before,
+.menu-category h3::after {
+  content: "";
+  height: 1px;
+  width: 50px;
+  background-color: var(--primary-gold);
+}
+
+.menu-grid {
+  display: flex;
+  overflow-x: auto;
+  gap: 1.5rem;
+  padding-bottom: 2rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  /* Hide scrollbar */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.menu-grid::-webkit-scrollbar {
+  display: none;
+}
+
+.menu-item {
+  min-width: 300px;
+  max-width: 300px;
+  scroll-snap-align: start;
+  background: var(--bg-light);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.menu-item:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(212, 175, 55, 0.3);
+}
+
+.menu-img-placeholder {
+  height: 220px;
+  background-color: #eee;
+  background-size: cover;
+  background-position: center;
+}
+
+.menu-info {
+  padding: 2rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.menu-info h4 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: var(--dark-text);
+}
+
+.menu-info p {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.price {
+  display: inline-block;
+  font-weight: 700;
+  color: var(--primary-gold);
+  font-size: 1.4rem;
+  font-family: var(--font-heading);
+}
+
+/* --- Gallery Section --- */
+.gallery-marquee {
+  position: relative;
+  overflow: hidden;
+  padding: 1rem 0;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+}
+
+.gallery-track {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  animation: scroll 40s linear infinite;
+}
+
+/* Pause scrolling on hover */
+.gallery-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.gallery-item {
+  position: relative;
+  height: 320px;
+  width: 300px;
+  /* Fixed width for marquee items */
+  flex-shrink: 0;
+  /* Prevent squishing */
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+.gallery-item .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(93, 64, 55, 0.6);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-item .overlay i {
+  font-size: 2rem;
+  color: white;
+}
+
+.gallery-item:hover .overlay {
+  opacity: 1;
+}
+
+/* --- Footer --- */
+.footer {
+  background-color: #1a1a1a;
+  color: #fff;
+  padding: 6rem 0 2rem;
+  border-top: 4px solid var(--primary-gold);
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+.footer h3 {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--primary-gold);
+  margin-bottom: 1rem;
+}
+
+.footer h3 span {
+  color: white;
+}
+
+.footer-logo {
+  margin-bottom: 1.5rem;
+}
+
+.footer h4 {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.footer p {
+  color: #aaa;
+  margin-bottom: 0.8rem;
+  font-size: 0.95rem;
+}
+
+.footer-links li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+  color: #aaa;
+  transition: var(--transition);
+}
+
+.footer-links a:hover {
+  color: var(--primary-gold);
+  padding-left: 5px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+/* Specific fix: if social icons are inside footer-brand, maybe they want them next to text?
+           Let's assume the user wants: [Logo] [Text] [Icons] or [Logo] [Text] ... [Icons]
+           The gap 1.5rem handles spacing.
+        */
+
+.social-icons a {
+  color: #fff;
+  font-size: 1.4rem;
+  transition: var(--transition);
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.social-icons a:hover {
+  background-color: var(--primary-gold);
+  color: white;
+  transform: translateY(-3px);
+}
+
+.footer-map .map-container {
+  width: 100%;
+  height: 180px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.footer-map .map-container:hover {
+  border-color: var(--primary-gold);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid #333;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* --- Animations --- */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-1 {
+  transition-delay: 0.2s;
+}
+
+.delay-2 {
+  transition-delay: 0.4s;
+}
+
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+  .hero-content h1 {
+    font-size: 3.5rem;
+  }
+
+  .collage-grid {
+    gap: 8px;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 0rem;
+  }
+
+  .hero-content {
+    margin: 0 auto;
+  }
+
+  .hero-content p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .btn-group {
+    justify-content: center;
+  }
+
+  .hero-visuals {
+    order: -1;
+  }
+
+  .collage-wrapper {
+    max-width: 500px;
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+  }
+
+  .about-image {
+    order: -1;
+    width: 100%;
+    height: 400px;
+    min-height: 400px;
+    max-width: 500px;
+    margin: 0 auto;
+    position: relative;
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .navbar {
+    padding: 1rem 0;
+  }
+
+  .hero {
+    padding-top: 80px;
+  }
+
+  .hero-content h1 {
+    font-size: 3rem;
+  }
+
+  .section-header h2 {
+    font-size: 2.2rem;
+  }
+
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+}
